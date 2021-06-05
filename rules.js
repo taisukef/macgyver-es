@@ -1,4 +1,4 @@
-var assert = require("assert")
+import { assert, assertEquals } from "https://deno.land/std/testing/asserts.ts";
 
 function ifNull(n) {
   return n == null ? -1 : n
@@ -57,6 +57,8 @@ function rangeDesc(min, max) {
 
     return s
 }
+
+const exports = {};
 
 exports.isCalled = function (min, max) {
     if(min != null && max != null)
@@ -194,7 +196,7 @@ exports.returns = function (value) {
       if('function' == typeof value)
         value(returned)
       else
-        assert.equal(returned, value) //, 'function: ' + this.function + ' *must* return ' + JSON.stringify(value))
+        assertEquals(returned, value) //, 'function: ' + this.function + ' *must* return ' + JSON.stringify(value))
     }
   }
 }
@@ -206,7 +208,7 @@ exports.isPassed = function (value) {
       if('function' == typeof value)
         value(args)
       else
-        assert.deepEqual(args, value) //, 'function: ' + this.function + '*must* be passed' + JSON.stringify(value))
+        assertEquals(args, value) //, 'function: ' + this.function + '*must* be passed' + JSON.stringify(value))
     }
   }
 }
@@ -229,3 +231,6 @@ exports.throws = function (test) {
     }
   }
 }
+
+const rules = exports;
+export { rules };

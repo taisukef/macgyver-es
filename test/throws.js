@@ -1,5 +1,10 @@
-var s = require('./setup')(module)
-var assert = require("assert")
+import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
+import { setup } from "./setup/index.js";
+
+const module = {
+  exports: {}
+};
+const s = setup(module)
 
 var invalid = s.invalid
 var valid = s.valid
@@ -34,7 +39,7 @@ valid('throwing skips returns', function (mac) {
     })
 
   t()
-  assert.equal(returnChecked, false)
+  assertEquals(returnChecked, false)
 })
 
-
+Object.values(module.exports).forEach(f => f());

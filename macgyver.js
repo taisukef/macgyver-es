@@ -1,7 +1,5 @@
-'use strict';
-
-var inherits = require('util').inherits
-var rules = require('./rules')
+//var inherits = require('util').inherits
+import { rules } from './rules.js';
 
 function createId () {
   return (
@@ -18,7 +16,7 @@ function find (array, id) {
 }
 
 //create a macgyver context
-var exports = module.exports = function () {
+const exports = function () {
 
   var contracts = {}
   var macgyver = function wrap(funx, name) {
@@ -116,3 +114,5 @@ var exports = module.exports = function () {
   return macgyver
 }
 
+const macgyver = exports;
+export { macgyver };

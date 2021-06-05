@@ -1,6 +1,6 @@
-var macgyver = require('../..')
+import { macgyver } from '../../macgyver.js';
 
-module.exports = function (m) {
+const exports = function (m) {
   var tests = 0
 
   function test (name, funx, pass) {
@@ -29,3 +29,6 @@ module.exports = function (m) {
     }
   }
 }
+
+const setup = exports;
+export { setup };

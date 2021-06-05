@@ -1,4 +1,9 @@
-var s = require('./setup')(module)
+import { setup } from "./setup/index.js";
+
+const module = {
+  exports: {}
+};
+const s = setup(module)
 
 var invalid = s.invalid
 var valid = s.valid
@@ -29,3 +34,4 @@ invalid('atLeast(2) called once', function (mac) {
   hi(); bye();
 })
 
+Object.values(module.exports).forEach(f => f());

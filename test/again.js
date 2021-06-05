@@ -1,5 +1,11 @@
-var s = require('./setup')(module)
+import { setup } from "./setup/index.js";
 
+const module = {
+  exports: {}
+};
+const s = setup(module)
+
+console.log(s);
 var invalid = s.invalid
 var valid = s.valid
 
@@ -31,3 +37,4 @@ valid('once(), then retracted again(-1)', function (mac) {
 //  hi.isCalled(null, null, 1)
 })
 
+Object.values(module.exports).forEach(f => f());

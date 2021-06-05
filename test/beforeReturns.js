@@ -1,4 +1,9 @@
-var s = require('./setup')(module)
+import { setup } from "./setup/index.js";
+
+const module = {
+  exports: {}
+};
+const s = setup(module)
 
 var invalid = s.invalid
 var valid = s.valid
@@ -41,7 +46,4 @@ invalid('beforeReturns() twice', function (mac) {
   obj.b()// fails because on the second call, b has returned.
 })
 
-
-
-
-
+Object.values(module.exports).forEach(f => f());

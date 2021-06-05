@@ -1,7 +1,5 @@
 # macgyver
 
-[![build status](https://secure.travis-ci.org/dominictarr/macgyver.png)](http://travis-ci.org/dominictarr/macgyver)
-[![browser status](http://ci.testling.com/dominictarr/macgyver.png)](http://ci.testling.com/dominictarr/macgyver)
 declarative assertion framework for invocation ordering.
 
 when evented code really gets _mission critical_ there is one man you send in...
@@ -11,29 +9,28 @@ useful for testing streams, and other complex evented modules.
 ## example
 
 ``` js
-
-var macgyver = require('macgyver')
+import { macgyver } from './macgyver.js';
 
 //create a context
-var mac = macgyver()
+const mac = macgyver();
 
 //wrap a function...
 
-function hello () {
+const hello = () => {
   console.log('hello')
-}
+};
 
-function goodbye () {
+const goodbye = () => {
   console.log('goodbye')
-}
+};
 
-var hi = mac(hello)
+const hi = mac(hello)
 
 //declare it's behaviours
 
 hi.isCalled(1, 7) //must be called between 1 and 7 times.
 
-var bye = mac(goodbye).once() //must be called strictly once.
+const bye = mac(goodbye).once() //must be called strictly once.
 
 hi.before(bye) //hi must be called strictly before bye is called
 
@@ -54,9 +51,8 @@ here is a real life example: [dominictarr/event-stream/test/spec.js](https://git
 create a `maggyver` context.
 
 ``` js
-var macgyver = require('macgyver')
-var mac = macgyver()
-
+import { macgyver } from './macgyver.js';
+const mac = macgyver();
 ```
 
 wrap a function 
@@ -65,7 +61,7 @@ wrap a function
 
 function doSomething() {}
 
-var _doSomething = mac(doSomething)
+const _doSomething = mac(doSomething)
 
 ```
 
