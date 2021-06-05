@@ -9,7 +9,7 @@ useful for testing streams, and other complex evented modules.
 ## example
 
 ``` js
-import { macgyver } from './macgyver.js';
+import { macgyver } from 'https://taisukef.github.io/macgyver/macgyver.js';
 
 //create a context
 const mac = macgyver();
@@ -51,7 +51,7 @@ here is a real life example: [dominictarr/event-stream/test/spec.js](https://git
 create a `maggyver` context.
 
 ``` js
-import { macgyver } from './macgyver.js';
+import { macgyver } from 'https://taisukef.github.io/macgyver/macgyver.js';
 const mac = macgyver();
 ```
 
